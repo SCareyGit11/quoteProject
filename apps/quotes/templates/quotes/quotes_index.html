@@ -1,0 +1,11 @@
+
+	
+		
+		
+			{% for quote in quotes reversed %}
+					<div class="quote col-sm-3">
+					 		<p>"{{ quote.quote }}"</p>
+					 			  ~{{ quote.speaker }}
+					</div>
+				{% endfor %}
+		

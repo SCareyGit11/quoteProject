@@ -1,0 +1,8 @@
+<h2> Guess the speaker </h2>
+	<p>{{ rquote.quote }}</p>
+		
+		<div id="response"></div>
+		<p>{% for button in speakerButtons %}
+			<button class="{{rquote.speaker}}">{{button.speaker}}</button>
+		{% endfor %}</p>
+		

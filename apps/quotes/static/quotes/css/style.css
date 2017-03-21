@@ -1,0 +1,54 @@
+body{
+	background-image: url('../images/paper.png');
+}
+
+.quote{
+	padding: 10px;
+	-webkit-box-shadow: 10px 10px 5px 0px #99b3ff;
+	-moz-box-shadow: 10px 10px 5px 0px #99b3ff;
+	margin: 12px;
+}
+
+button{
+	border-radius: 10px;
+	background-color: #99b3ff;
+	font-size: 16px;
+	padding: 8px 22px;
+}
+
+input#addButton{
+	border-radius: 6px;
+	background-color: #99b3ff;
+	font-size: 12px;
+	margin-left: 63%;
+}
+
+.form-input{
+	border-radius: 4px;
+	align-self: right;
+}
+
+
+
+#current{
+	font-family: "caflisch script pro", cursive;
+	font-weight: 500;
+	text-align: justify;
+}
+
+#title,#guess,#addTitle, form label{
+	font-family: Times, serif;
+}
+
+.form-group{
+	
+	padding: 10px 20px;
+	text-align: center;
+}
+
+div#dropdown{
+	float: right;
+	width: 215px;
+    padding-left: 1%;
+    margin-top: 20px;
+}

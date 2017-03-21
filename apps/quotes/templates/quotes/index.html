@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quotes</title>
+	<meta charset="utf-8">
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'quotes/css/style.css' %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="{% static 'quotes/js/quotes.js' %}"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+</head>
+<body>
+  <div class="container-fluid">
+	<h1 id="title" class="col-sm-12"> Quotables </h1>
+		
+		<div class="row">
+			<div class="col-sm-3"></div>
+			<div><h1 id="current" class="col-sm-9"></h1></div>
+		</div>
+
+
+		<div class="row">	
+			<div class="speakerButtons col-sm-4">
+				<h2 id="guess"> Guess the speaker </h2>
+					<p>{{ rquote.quote }}</p>
+						<div id="response"></div>
+						<p>{% for button in speakerButtons %}
+							<button class="{{rquote.speaker}}">{{button.speaker}}</button>
+						{% endfor %}</p>				
+			</div>
+
+			<div class="col-sm-5"></div>
+
+			<div class="form-group col-sm-3">
+			  <h3 id="addTitle"> Add a new quote </h3>
+				<form id="addQuote" action="/quotes" method="post">
+					{% csrf_token %}
+					
+					{{ form.as_p }}
+
+					<input id="addButton" type="submit" value="Add">
+				</form>
+			</div>
+		</div>
+
+		<div class="row">
+			<div id="dropdown" class="col-sm-3">
+				<h4> Search </h4>
+				  <h5 id="select_category"></h5>
+				  <button id="cat_button"  type="button" data-toggle="dropdown">Category
+				  <span class="caret"></span></button>
+				  
+				  <ul class="dropdown-menu">
+
+				   <li><a id="All" class="categories" href="/categories/All">All</a></li>
+				   <li><a id="Fa" class="categories" href="/categories/Fa">Family</a></li>
+				   <li><a id="Fr" class="categories" href="/categories/Fr">Friendship</a></li>
+				   <li><a id="Ha" class="categories" href="/categories/Ha">Happiness</a></li>
+				   <li><a id="Hu" class="categories" href="/categories/Hu">Humor</a></li>
+				   <li><a id="Li" class="categories" href="/categories/Li">Life</a></li>
+				   <li><a id="Su" class="categories" href="/categories/Su">Success</a></li>
+				   <li><a id="Wi" class="categories" href="/categories/Wi">Wisdom</a></li>
+				   
+
+				  </ul>
+
+			
+			</div>
+		
+			{% if quotes %}
+				<div class="quotes">
+					{% for quote in quotes reversed %}
+						<div class="quote col-sm-3">
+					 		<p>"{{ quote.quote }}"</p>
+					 			  ~{{ quote.speaker }}
+					
+						</div>
+					{% endfor %}
+				</div>	
+			{% endif %}
+
+
+		
+		</div>
+
+	
+
+	
+  </div>
+</body>
+
+</html>
